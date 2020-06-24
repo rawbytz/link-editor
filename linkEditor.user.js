@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         WorkFlowy Link Editor
 // @namespace    https://github.com/rawbytz/
-// @version      0.2
+// @version      0.3
 // @description  Alt+Click on links in WorkFlowy to edit the name & url
 // @author       rawbytz
 // @match        https://workflowy.com/*
@@ -67,9 +67,9 @@
 
   document.body.addEventListener("click", function (e) {
     if (e.altKey && !e.ctrlKey && !e.shiftKey && !e.metaKey && e.target.className.includes("contentLink")) {   
-      showEditLink(e.target);
       e.preventDefault();
       e.stopPropagation();
+      showEditLink(e.target);
     }
   });
 })();
