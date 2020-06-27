@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         WorkFlowy Link Editor
 // @namespace    https://github.com/rawbytz/
-// @version      0.3
+// @version      0.4
 // @description  Alt+Click on links in WorkFlowy to edit the name & url
 // @author       rawbytz
 // @match        https://workflowy.com/*
