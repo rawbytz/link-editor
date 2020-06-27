@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         WorkFlowy Link Editor
 // @namespace    https://github.com/rawbytz/
-// @version      0.4
+// @version      0.5
 // @description  Alt+Click on links in WorkFlowy to edit the name & url
 // @author       rawbytz
 // @match        https://workflowy.com/*
@@ -28,7 +28,6 @@
     LINK_IN_NAME ? WF.editItemName(parent) : WF.editItemNote(parent);
   }
   const htmlEscText = str => str.replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
-  const focus = WF.focusedItem();
   function showEditLink(target) {
     const inputStyle = '.inputBx{width:95%;height:20px;display:block;margin-top:5px;border:1px solid #ccc;border-radius:4px;padding:4px}';
     const buttonStyle = '.btnX{font-size:18px;background-color:#49baf2;border:2px solid;border-radius:20px;color:#fff;padding:5px 15px;margin-top:16px;margin-right:16px}.btnX:focus{border-color:#c4c4c4}';
@@ -61,7 +60,6 @@
       };
       btn2.onclick = () => {
         WF.hideDialog();
-        setTimeout(() => WF.editItemName(focus), 100);
       };
     }, 100);
   }
