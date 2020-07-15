@@ -30,7 +30,7 @@
   const htmlEscText = str => str.replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
   function showEditLink(target) {
     const inputStyle = '.inputBx{width:95%;height:20px;display:block;margin-top:5px;border:1px solid #ccc;border-radius:4px;padding:4px}';
-    const buttonStyle = '.btnX{font-size:18px;background-color:#49baf2;border:2px solid;border-radius:20px;color:#fff;padding:5px 15px;margin-top:16px;margin-right:16px}.btnX:focus{border-color:#c4c4c4}';
+    const buttonStyle = '.btnX{font-size:18px;background-color:steelblue;border:2px solid;border-radius:20px;color:#fff;padding:5px 15px;margin-top:16px;margin-right:16px}.btnX:focus{border-color:#c4c4c4}';
     const textBox = `<div><input value="${htmlEscText(target.innerText)}" id="textBox" class="inputBx" type="text" spellcheck="false"></div>`;
     const linkBox = `<div><input value="${htmlEscText(target.href)}" id="linkBox" class="inputBx" type="url" spellcheck="false"></div>`;
     const body = `<div><h3>Text</h3>${textBox}<br><h3>Link</h3>${linkBox}</div>`;
