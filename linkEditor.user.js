@@ -27,15 +27,19 @@
     LINK_IN_NAME ? WF.setItemName(parent, nuContent) : WF.setItemNote(parent, nuContent);
     LINK_IN_NAME ? WF.editItemName(parent) : WF.editItemNote(parent);
   }
+  function getColors() {
+    const p = document.querySelector(".page.active");
+    return p ? `color:${getComputedStyle(p).color};background:${getComputedStyle(p).backgroundColor};` : "";
+  }
   const htmlEscText = str => str.replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
   function showEditLink(target) {
-    const inputStyle = '.inputBx{width:95%;height:20px;display:block;margin-top:5px;border:1px solid #ccc;border-radius:4px;padding:4px}';
+    const inputStyle = `.inputBx{${getColors()}width:95%;height:20px;display:block;margin-top:5px;border:1px solid #ccc;border-radius:4px;padding:4px}`;
     const buttonStyle = '.btnX{font-size:18px;background-color:steelblue;border:2px solid;border-radius:20px;color:#fff;padding:5px 15px;margin-top:16px;margin-right:16px}.btnX:focus{border-color:#c4c4c4}';
     const textBox = `<div><input value="${htmlEscText(target.innerText)}" id="textBox" class="inputBx" type="text" spellcheck="false"></div>`;
     const linkBox = `<div><input value="${htmlEscText(target.href)}" id="linkBox" class="inputBx" type="url" spellcheck="false"></div>`;
     const body = `<div><h3>Text</h3>${textBox}<br><h3>Link</h3>${linkBox}</div>`;
     const addButton = (num, name) => `<button type="button" class="btnX" id="btn${num.toString()}">${name}</button>`;
-    const buttons = `<div>${addButton(1, "OK") + addButton(2,"Cancel")}</div>`;
+    const buttons = `<div>${addButton(1, "OK") + addButton(2, "Cancel")}</div>`;
     WF.showAlertDialog(`<style>${inputStyle + buttonStyle}</style>${body + buttons}`, "Edit Link");
     setTimeout(() => {
       let link, text;
