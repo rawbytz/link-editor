@@ -34,9 +34,8 @@
     const textBox = `<div><input value="${htmlEscText(target.innerText)}" id="textBox" class="inputBx" type="text" spellcheck="false"></div>`;
     const linkBox = `<div><input value="${htmlEscText(target.href)}" id="linkBox" class="inputBx" type="url" spellcheck="false"></div>`;
     const body = `<div><h3>Text</h3>${textBox}<br><h3>Link</h3>${linkBox}</div>`;
-    const b1 = `<button type="button" class="btnX" id="btn1">OK</button>`;
-    const b2 = `<button type="button" class="btnX" id="btn2">Cancel</button>`;
-    const buttons = `<div>${b1 + b2}</div>`;
+    const addButton = (num, name) => `<button type="button" class="btnX" id="btn${num.toString()}">${name}</button>`;
+    const buttons = `<div>${addButton(1, "OK") + addButton(2,"Cancel")}</div>`;
     WF.showAlertDialog(`<style>${inputStyle + buttonStyle}</style>${body + buttons}`, "Edit Link");
     setTimeout(() => {
       let link, text;
